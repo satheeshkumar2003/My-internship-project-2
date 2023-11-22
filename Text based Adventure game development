@@ -1,0 +1,108 @@
+import time
+
+def introduction():
+    print("Welcome to the Mystery of the Forbidden Mansion!")
+    time.sleep(1)
+    print("You find yourself standing in front of an old, eerie mansion shrouded in mist.")
+
+def make_choice(choices):
+    print("Choose your action:")
+    for i, choice in enumerate(choices, start=1):
+        print(f"{i}. {choice}")
+
+    while True:
+        try:
+            choice = int(input("Enter the number of your choice: "))
+            if 1 <= choice <= len(choices):
+                return choice
+            else:
+                print("Invalid choice. Try again.")
+        except ValueError:
+            print("Invalid input. Enter a number.")
+
+def chapter_one():
+    print("Chapter 1: The Forbidden Mansion")
+    time.sleep(1)
+    print("The creaking door opens slowly. Do you:")
+    choice = make_choice(["Enter cautiously", "Run away"])
+
+    if choice == 1:
+        print("You step inside the dimly lit foyer.")
+        time.sleep(1)
+        chapter_two_foyer()
+    else:
+        print("You run away in fear, never knowing what secrets the mansion holds.")
+        time.sleep(1)
+        # End game or loop back to the beginning
+
+def chapter_two_foyer():
+    print("Chapter 2: Mysterious Foyer")
+    time.sleep(1)
+    print("You see two staircases—one going up and one going down. Do you:")
+    choice = make_choice(["Ascend the staircase", "Descend the staircase"])
+
+    if choice == 1:
+        print("You climb the grand staircase to the upper floor.")
+        time.sleep(1)
+        chapter_three_upstairs()
+    else:
+        print("You descend into the dark, eerie basement.")
+        time.sleep(1)
+        chapter_three_basement()
+
+def chapter_three_upstairs():
+    print("Chapter 3: Haunted Hallway")
+    time.sleep(1)
+    print("You encounter a ghostly figure. Do you:")
+    choice = make_choice(["Engage in conversation", "Run away in terror"])
+
+    if choice == 1:
+        print("The ghost reveals a secret passage.")
+        time.sleep(1)
+        # Unlock secret passage or reveal important information
+        chapter_four()
+    else:
+        print("You flee, narrowly escaping the ghost's grasp.")
+        time.sleep(1)
+        chapter_four()
+
+def chapter_three_basement():
+    print("Chapter 3: Creepy Basement")
+    time.sleep(1)
+    print("You find an old chest. Do you:")
+    choice = make_choice(["Open the chest", "Leave the basement"])
+
+    if choice == 1:
+        print("Inside the chest, you find a mysterious artifact.")
+        time.sleep(1)
+        # Add artifact to inventory
+        chapter_four()
+    else:
+        print("You decide to leave the eerie basement behind.")
+        time.sleep(1)
+        chapter_four()
+
+def chapter_four():
+    print("Chapter 4: Unveiling the Truth")
+    time.sleep(1)
+    print("As you proceed, you discover the mansion's dark secret.")
+    time.sleep(1)
+    print("How will you confront the truth?")
+    choice = make_choice(["Confront the evil within", "Escape the mansion"])
+
+    if choice == 1:
+        print("A final showdown awaits.")
+        time.sleep(1)
+        # Handle the final confrontation and multiple endings
+    else:
+        print("You escape the mansion, leaving the secrets behind.")
+        time.sleep(1)
+        # Conclude the game with different endings
+
+# Main game loop
+def main():
+    introduction()
+    chapter_one()
+
+if __name__ == "__main__":
+    main()
